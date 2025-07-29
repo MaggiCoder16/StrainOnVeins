@@ -44,13 +44,12 @@ jobs:
       - name: Inject Secret Token
         run: sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXX/${{ secrets.LICHESS_KEY }}/g" config.yml
 
-      - name: Download Stockfish 17.1
+      - name: Download Stockfish 17.1 (Linux)
         run: |
           mkdir -p engines
-          curl -L -o sf17.tar https://github.com/official-stockfish/Stockfish/releases/download/sf_17/stockfish-ubuntu-x86-64-modern.tar
-          tar -xvf sf17.tar
-          mv stockfish/stockfish-ubuntu-x86-64-modern engines/stockfish
+          curl -L -o engines/stockfish https://github.com/official-stockfish/Stockfish/releases/download/sf_17.1/stockfish-ubuntu-x86-64-modern
           chmod +x engines/stockfish
+
 
 
 
