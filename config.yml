@@ -214,7 +214,7 @@ blacklist:                                 # List of users who are not challenge
 # - Username1
 # - Username2
 
-#books:                                    # Names of the opening books (to be used above in the opening_books section) and paths to the opening books.
+books:                                    # Names of the opening books (to be used above in the opening_books section) and paths to the opening books.
   #Titans: "engines/Titans.bin"
  # optimus2409: "./engines/optimus2409.bin"
 #  optimus32:  "./engines/optimus32.bin"
