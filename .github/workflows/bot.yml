@@ -14,7 +14,7 @@ jobs:
   build:
     concurrency:
       group: bot-run
-      cancel-in-progress: false  # Keep this false for fastest restarts
+      cancel-in-progress: true  # Keep this false for fastest restarts
 
     runs-on: ubuntu-22.04
     timeout-minutes: 355  # Just under 6-hour GitHub limit
@@ -44,10 +44,11 @@ jobs:
       - name: Inject Secret Token
         run: sed -i "s/XXXXXXXXXXXXXXXXXXXXXXXX/${{ secrets.LICHESS_KEY }}/g" config.yml
 
-      - name: Download Stockfish 17.1 for Linux
+      - name: Download latest Stockfish dev 
         run: |
-          mkdir -p engines
-          curl -L -o engines/stockfish https://github.com/official-stockfish/Stockfish/releases/download/sf_17/stockfish-ubuntu-x86-64-modern
+          curl -L -o stockfish.zip http://abrok.eu/stockfish/latest/linux/stockfish_x64_modern.zip
+          unzip -o stockfish.zip -d engines/
+          mv engines/stockfish* engines/stockfish
           chmod +x engines/stockfish
 
 
